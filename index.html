@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的作品集</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      background: #0f0f0f;
+      color: #e8e8e8;
+      line-height: 1.7;
+    }
+
+    /* 導覽列 */
+    nav {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+
+    nav .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #fff; }
+
+    /* Hero 區塊 */
+    .hero {
+      padding: 6rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero .tag {
+      color: #5b6af0;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span { color: #5b6af0; }
+
+    .hero p {
+      color: #888;
+      font-size: 1.1rem;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #5b6af0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: #4a58d0; }
+
+    /* 關於我 */
+    .section {
+      padding: 4rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 1px solid #222;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .section p { color: #888; }
+
+    /* 作品 */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: #5b6af0;
+      transform: translateY(-3px);
+    }
+
+    .project-card .emoji { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .project-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .project-card p { color: #666; font-size: 0.85rem; }
+
+    /* 聯絡 */
+    .contact {
+      text-align: center;
+      padding: 5rem 3rem;
+      border-top: 1px solid #222;
+    }
+
+    .contact h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .contact p { color: #888; margin-bottom: 2rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #444;
+      font-size: 0.8rem;
+      border-top: 1px solid #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <nav>
+    <div class="logo">珊織小花喵喵喵</div>
+    <div>
+      <a href="#about">關於我</a>
+      <a href="#projects">作品</a>
+      <a href="#contact">聯絡</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <p class="tag">你好，我是</p>
+    <h1>珊織小花喵喵喵<br><span>是一個喜歡鉤毛線的二寶媽</span></h1>
+    <p>歡迎大家來訂購。</p>
+    <a href="#contact" class="btn">聯絡我</a>
+  </div>
+
+  <!-- 關於我 -->
+  <div class="section" id="about">
+    <h2>關於我</h2>
+    <p>
+      宜蘭人，喜歡鉤毛線，也會乾燥花
+    </p>
+  </div>
+
+  <!-- 作品 -->
+  <div class="section" id="projects">
+    <h2>作品</h2>
+    <div class="projects">
+
+      <div class="project-card">
+        <div class="emoji">🎨</div>
+        <h3>作品名稱一</h3>
+        <p>簡單描述這個作品是什麼、用了什麼工具做的。</p>
+      </div>
+
+      <div class="project-card">
+        <div class="emoji">📝</div>
+        <h3>作品名稱二</h3>
+        <p>簡單描述這個作品是什麼、用了什麼工具做的。</p>
+      </div>
+
+      <div class="project-card">
+        <div class="emoji">🚀</div>
+        <h3>作品名稱三</h3>
+        <p>簡單描述這個作品是什麼、用了什麼工具做的。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 聯絡 -->
+  <div class="contact" id="contact">
+    <h2>聯絡我</h2>
+    <p>有任何合作機會或問題，歡迎寄信給我。</p>
+    <a href="mailto:shanshanflower@email.com" class="btn">shanshanflower@email.com</a>
+  </div>
+
+  <footer>
+    © 2026 珊織小花喵喵喵. All rights reserved.
+  </footer>
+
+</body>
+</html>
