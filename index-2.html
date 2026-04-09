@@ -1,474 +1,687 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>珊織小花喵喵喵-2 | 個人作品集</title>
+  <title>復健中心</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ===== 基礎重置 ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
-      background: #fafafa;
-      color: #1a1a2e;
-      line-height: 1.7;
+      font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+      color: #161d39;
+      background: #fff;
+      overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
+    /* ===== 色彩變數 ===== */
+    :root {
+      --blue-dark:   #134b92;
+      --blue-light:  #76b2c4;
+      --teal:        #4ecdc4;
+      --teal-bg:     #f3fcfb;
+      --navy:        #161d39;
+      --green-hover: #dbf9b6;
+      --white:       #ffffff;
+    }
 
-    /* NAV */
-    nav {
+    /* ===== 導覽列 ===== */
+    header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2.5rem;
-      background: rgba(250, 250, 250, 0.9);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #e0e0e0;
       z-index: 100;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
 
-    nav .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #5b6af0;
-    }
-
-    nav ul {
-      list-style: none;
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 80px;
       display: flex;
-      gap: 2rem;
+      align-items: center;
+      gap: 48px;
     }
 
-    nav ul a {
-      font-size: 0.9rem;
-      color: #1a1a2e;
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--blue-dark);
+      letter-spacing: 2px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
       transition: color 0.2s;
     }
 
-    nav ul a:hover { color: #5b6af0; }
+    .nav-links a:hover { color: var(--teal); }
 
-    /* HERO */
-    #hero {
+    .nav-links .has-dropdown {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-links .has-dropdown::after {
+      content: ' ∨';
+      font-size: 0.8rem;
+      color: var(--blue-light);
+    }
+
+    /* ===== Hero 區塊 ===== */
+    .hero {
+      position: relative;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 6rem 2rem 3rem;
-      background: linear-gradient(135deg, #fafafa 0%, #eef0ff 100%);
+      padding-top: 80px;
+      overflow: hidden;
+      background: #fff;
     }
 
-    #hero h1 {
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      font-weight: 800;
-      color: #1a1a2e;
-      margin-bottom: 0.75rem;
+    /* 有機形狀背景（左上角蛋形） */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -80px;
+      width: 600px; height: 350px;
+      background: var(--teal);
+      border-radius: 0 0 60% 40% / 0 0 80% 60%;
+      opacity: 0.85;
+      z-index: 0;
     }
 
-    #hero h1 span { color: #5b6af0; }
-
-    #hero p {
-      font-size: 1.2rem;
-      color: #555;
-=======
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的作品集</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Microsoft JhengHei", sans-serif;
-      background: #0d4f6c;
-      color: #110000;
-      line-height: 1.7;
-    }
-
-    /* 導覽列 */
-    nav {
-      padding: 1.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-    }
-
-    nav .logo {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: #fff; }
-
-    /* Hero 區塊 */
-    .hero {
-      padding: 6rem 3rem;
-      max-width: 800px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
     }
 
-    .hero .tag {
-      color: #5b6af0;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+    .hero-text { padding-top: 40px; }
+
+    .hero-text .top-line {
+      display: block;
+      width: 80px; height: 3px;
+      background: var(--navy);
+      margin-bottom: 40px;
     }
 
-    .hero h1 {
-      font-size: 3rem;
+    .hero-text h1 {
+      font-size: 2.4rem;
       font-weight: 900;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 24px;
     }
 
-    .hero h1 span { color: #5b6af0; }
-
-    .hero p {
-      color: #888;
-      font-size: 1.1rem;
-      max-width: 520px;
->>>>>>> a7a4d66a836de5c717d3dc685171d925986717f2
-      margin-bottom: 2rem;
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
 
-    .btn {
-      display: inline-block;
-<<<<<<< HEAD
-      padding: 0.75rem 2rem;
-      background: #5b6af0;
-      color: #fff;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .hero-text .services {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 8px;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(91, 106, 240, 0.3);
+    /* Hero 圖片 */
+    .hero-image-wrap {
+      position: relative;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 5rem 2rem;
-      max-width: 960px;
-      margin: 0 auto;
+    .hero-image-wrap img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      display: block;
+    }
+
+    /* 浮動裝飾圓點 */
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--teal);
+      opacity: 0.7;
+    }
+    .dot-1 { width: 30px; height: 30px; top: 20%; left: -20px; }
+    .dot-2 { width: 20px; height: 20px; top: 45%; left: 60px; }
+    .dot-3 { width: 16px; height: 16px; top: 65%; right: 40px; }
+
+    /* 右側浮動標籤 */
+    .side-label {
+      position: fixed;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px 0 0 8px;
+      padding: 16px 10px;
+      font-size: 0.85rem;
+      color: var(--navy);
+      z-index: 99;
+      letter-spacing: 3px;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.07);
+    }
+
+    /* ===== 分隔波浪 ===== */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-top: -2px;
+    }
+    .wave-divider svg { display: block; }
+
+    /* ===== 三師聯手區塊 ===== */
+    .team-section {
+      background: var(--teal-bg);
+      padding: 80px 0 60px;
     }
 
     .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -6px;
-      width: 40px; height: 4px;
-      background: #5b6af0;
-      border-radius: 2px;
-    }
-
-    /* ABOUT */
-    #about p {
-      color: #555;
-      font-size: 1rem;
-      max-width: 640px;
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
       text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 48px;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(91, 106, 240, 0.12);
+    .team-cards {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
-    .card .emoji {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .team-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: start;
+      padding: 48px 0;
+      border-bottom: 1px solid #e0f0ee;
+    }
+    .team-card:last-child { border-bottom: none; }
+
+    .team-card-icon {
+      width: 120px; height: 120px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      color: #fff;
     }
 
-    .card h3 {
+    .team-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--blue-dark);
+      color: var(--blue-dark);
+      padding: 8px 24px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--blue-dark);
+      color: #fff;
+    }
+
+    /* ===== 服務特色區塊 ===== */
+    .features-section {
+      background: var(--blue-dark);
+      padding: 80px 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .features-section .section-title { color: #fff; }
+    .features-section .section-subtitle {
+      color: rgba(255,255,255,0.8);
+      margin-top: -32px;
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+
+    .features-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-col h4 {
       font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #1a1a2e;
+      margin-bottom: 16px;
+      color: var(--teal);
     }
 
-    .card p {
+    .feature-col ul {
+      list-style: none;
+      text-align: left;
+    }
+    .feature-col ul li {
       font-size: 0.9rem;
-      color: #777;
+      color: rgba(255,255,255,0.9);
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .feature-col ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--blue-light);
+      font-size: 0.7rem;
+      top: 7px;
     }
 
-    /* CONTACT */
-    #contact {
-      text-align: center;
+    /* ===== 儀器設備區塊 ===== */
+    .equipment-section {
+      padding: 80px 0;
+      background: #fff;
     }
 
-    #contact p {
-      color: #555;
-      margin-bottom: 1.5rem;
-    }
+    .equipment-section .section-title { color: var(--navy); }
 
-    #contact a.email-link {
-      display: inline-block;
-      padding: 0.75rem 2rem;
-      border: 2px solid #5b6af0;
-      color: #5b6af0;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    #contact a.email-link:hover {
-      background: #5b6af0;
-      color: #fff;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.85rem;
-      color: #aaa;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      nav ul { gap: 1rem; }
-      nav { padding: 1rem 1.5rem; }
-=======
-      padding: 0.8rem 2rem;
-      background: #5b6af0;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      transition: background 0.2s;
-    }
-
-    .btn:hover { background: #4a58d0; }
-
-    /* 關於我 */
-    .section {
-      padding: 4rem 3rem;
-      max-width: 800px;
+    .equipment-grid {
+      max-width: 1000px;
       margin: 0 auto;
-      border-top: 1px solid #222;
-    }
-
-    .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-    }
-
-    .section p { color: #888; }
-
-    /* 作品 */
-    .projects {
+      padding: 0 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .project-card {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 10px;
-      padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
+    .equip-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      height: 250px;
+      cursor: pointer;
     }
 
-    .project-card:hover {
-      border-color: #5b6af0;
-      transform: translateY(-3px);
+    .equip-card .equip-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
     }
+    .equip-card:hover .equip-img { transform: scale(1.05); }
 
-    .project-card .emoji { font-size: 1.8rem; margin-bottom: 0.8rem; }
-    .project-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .project-card p { color: #666; font-size: 0.85rem; }
-
-    /* 聯絡 */
-    .contact {
-      text-align: center;
-      padding: 5rem 3rem;
-      border-top: 1px solid #222;
+    .equip-card .equip-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(19,75,146,0.9), transparent);
+      color: #fff;
+      padding: 24px 16px 14px;
     }
-
-    .contact h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .contact p { color: #888; margin-bottom: 2rem; }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #444;
+    .equip-card .equip-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-light);
+      margin-bottom: 4px;
+    }
+    .equip-card .equip-info p {
       font-size: 0.8rem;
-      border-top: 1px solid #1a1a1a;
->>>>>>> a7a4d66a836de5c717d3dc685171d925986717f2
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+    }
+
+    .equip-card .equip-hover {
+      position: absolute;
+      inset: 0;
+      background: var(--green-hover);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .equip-card:hover .equip-hover { opacity: 0.8; }
+
+    .section-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ===== 最新消息 ===== */
+    .news-section {
+      background: var(--teal-bg);
+      padding: 80px 0;
+    }
+
+    .news-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .news-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s;
+    }
+    .news-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .news-item .news-date {
+      font-size: 0.8rem;
+      color: var(--blue-light);
+    }
+    .news-item .news-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--blue-light); text-decoration: none; }
+
+    /* ===== RWD ===== */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; gap: 32px; }
+      .hero-image-wrap img { height: 320px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .equipment-grid { grid-template-columns: repeat(2, 1fr); }
+      .news-grid { grid-template-columns: 1fr; }
+      .team-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .logo { font-size: 1.4rem; }
+      .nav-links { display: none; }
+      .equipment-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<<<<<<< HEAD
-  <!-- NAV -->
-  <nav>
-    <div class="logo">珊織小花喵喵喵-2</div>
-    <ul>
-      <li><a href="#about">關於我</a></li>
-      <li><a href="#projects">作品</a></li>
-      <li><a href="#contact">聯絡</a></li>
-    </ul>
-  </nav>
+  <!-- 右側浮動標籤 -->
+  <div class="side-label">您的診所名稱</div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <h1>嗨，我是<span>珊織小花喵喵喵-2</span></h1>
-    <p>鉤織的二寶媽</p>
-    <a href="#contact" class="btn">聯絡我</a>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title">關於我</h2>
-    <p>（這裡可以填寫更多關於你自己的介紹，例如：鉤織幾年了、喜歡什麼風格、靈感來源等）</p>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">我的作品</h2>
-    <div class="projects-grid">
-
-      <div class="card">
-        <div class="emoji">🌸</div>
-        <h3>水彩鉤織花</h3>
-        <p>一股線鉤的並用手工水彩上色</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title">聯絡我</h2>
-    <p>有任何問題或合作邀約，歡迎寫信給我！</p>
-    <a href="mailto:shanshanflower@gmail.com" class="email-link">shanshanflower@gmail.com</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 珊織小花喵喵喵-2. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
-=======
   <!-- 導覽列 -->
-  <nav>
-    <div class="logo">珊織小花喵喵喵</div>
-    <div>
-      <a href="#about">關於我</a>
-      <a href="#projects">作品</a>
-      <a href="#contact">聯絡</a>
-    </div>
-  </nav>
+  <header>
+    <nav>
+      <a href="#" class="logo">復健中心</a>
+      <ul class="nav-links">
+        <li><a href="#">首頁</a></li>
+        <li class="has-dropdown"><a href="#">團隊陣容</a></li>
+        <li class="has-dropdown"><a href="#">運動復健服務</a></li>
+        <li><a href="#">環境與儀器</a></li>
+        <li><a href="#">認識病態老化</a></li>
+        <li class="has-dropdown"><a href="#">聯絡洽詢</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Hero -->
-  <div class="hero">
-    <p class="tag">你好，我是</p>
-    <h1>珊織小花喵喵喵<br><span>是一個喜歡鉤毛線的二寶媽</span></h1>
-    <p>歡迎大家來訂購。</p>
-    <a href="#contact" class="btn">聯絡我</a>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="top-line"></span>
+        <h1>提升復健成效，<br>量身打造個別化<br>運動處方</h1>
+        <p>各專科醫師、復健治療師、運動訓練師一條龍合作，打造健康有力的活力人生！</p>
+        <p class="services">門診｜復健｜運動治療｜肌力訓練</p>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="dot dot-1"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3"></div>
+        <!-- 請替換為您自己的圖片 -->
+        <img 
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop" 
+          alt="復健中心環境" 
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 波浪分隔 -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:80px;width:100%;">
+      <path d="M0,40 C300,80 900,0 1200,40 L1200,80 L0,80 Z" fill="#f3fcfb"/>
+    </svg>
   </div>
 
-  <!-- 關於我 -->
-  <div class="section" id="about">
-    <h2>關於我</h2>
-    <p>
-      宜蘭人，喜歡鉤毛線，也會乾燥花
-    </p>
-  </div>
+  <!-- 三師聯手 -->
+  <section class="team-section">
+    <h2 class="section-title">三師聯手，助您克服病態老化</h2>
+    <div class="team-cards">
 
-  <!-- 作品 -->
-  <div class="section" id="projects">
-    <h2>作品</h2>
-    <div class="projects">
-
-      <div class="project-card">
-        <div class="emoji">🎨</div>
-        <h3>乾燥花</h3>
-        <p>乾燥的花</p>
+      <div class="team-card">
+        <div class="team-card-icon">🩺</div>
+        <div>
+          <h3>醫師專業診斷</h3>
+          <p>
+            診所設有復健科、骨科、神經內科及免疫風濕科等，可一站諮詢老化帶來的各種不適。
+            例如：肌肉骨骼相關手術前手術後、脊椎側彎、骨質疏鬆症、帕金森氏症等。
+          </p>
+          <a href="#" class="btn-outline">查看醫師介紹</a>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="emoji">📝</div>
-        <h3>針織南瓜</h3>
-        <p>簡單針織</p>
+      <div class="team-card">
+        <div class="team-card-icon">🏃</div>
+        <div>
+          <h3>治療師評估及治療</h3>
+          <p>
+            物理治療師評估身體損傷、功能受限、失能，利用物理因子、徒手治療及運動治療提升日常生活品質。
+            職能治療師評估精細動作、認知能力並提供相關訓練。
+          </p>
+          <a href="#" class="btn-outline">查看治療師介紹</a>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="emoji">🚀</div>
-        <h3>一股線</h3>
-        <p>超難</p>
+      <div class="team-card">
+        <div class="team-card-icon">💪</div>
+        <div>
+          <h3>個人訓練師量身規劃與指導鍛鍊</h3>
+          <p>
+            依照個人能力以及需求，設計個別化運動菜單並搭配專業指導，以達到事半功倍訓練效果！
+          </p>
+          <a href="#" class="btn-outline">查看訓練師介紹</a>
+        </div>
       </div>
 
     </div>
+  </section>
+
+  <!-- 波浪分隔 -->
+  <div class="wave-divider" style="transform:scaleY(-1);background:#f3fcfb;">
+    <svg viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:80px;width:100%;">
+      <path d="M0,40 C300,80 900,0 1200,40 L1200,80 L0,80 Z" fill="#134b92"/>
+    </svg>
   </div>
 
-  <!-- 聯絡 -->
-  <div class="contact" id="contact">
-    <h2>聯絡我0999999999</h2>
-    <p>有任何合作機會或問題，歡迎寄信給我。</p>
-    <a href="mailto:shanshanflower@email.com" class="btn">shanshanflower@email.com</a>
-  </div>
+  <!-- 服務特色 -->
+  <section class="features-section">
+    <h2 class="section-title">復健＋肌力訓練＝更長久的健康</h2>
+    <p class="section-subtitle">來福力的學員包含退休長者、慢性病患者及久坐上班族等</p>
+    <div class="features-grid">
+      <div class="feature-col">
+        <h4>疾病診斷及健康規劃</h4>
+        <ul>
+          <li>增肌、健骨、體態雕塑</li>
+          <li>肌肉關節疾患</li>
+          <li>三高／風濕免疫問題</li>
+        </ul>
+      </div>
+      <div class="feature-col">
+        <h4>復健醫學專業評估</h4>
+        <ul>
+          <li>增生療法</li>
+          <li>體外震波治療</li>
+          <li>個別化醫療及運動處方</li>
+        </ul>
+      </div>
+      <div class="feature-col">
+        <h4>重量訓練及核心鍛鍊</h4>
+        <ul>
+          <li>增強骨質密度</li>
+          <li>強化肌肉力量</li>
+          <li>提升神經系統效能</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-cta" style="margin-top:48px;">
+      <a href="#" class="btn-outline" style="color:#fff;border-color:#fff;">肌力就像錢，你儲備好了嗎？</a>
+    </div>
+  </section>
 
+  <!-- 儀器設備 -->
+  <section class="equipment-section">
+    <h2 class="section-title">齊全多樣的復健儀器及訓練器材</h2>
+    <div class="equipment-grid">
+
+      <div class="equip-card">
+        <div class="equip-hover"></div>
+        <img class="equip-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&auto=format&fit=crop" alt="頸椎/腰椎牽引">
+        <div class="equip-info">
+          <h3>頸椎／腰椎牽引</h3>
+          <p>減輕椎間盤壓力、放鬆脊椎旁緊繃肌肉</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <div class="equip-hover"></div>
+        <img class="equip-img" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&auto=format&fit=crop" alt="體外震波">
+        <div class="equip-info">
+          <h3>體外震波</h3>
+          <p>止痛、刺激細胞修復</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <div class="equip-hover"></div>
+        <img class="equip-img" src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop" alt="啞鈴訓練">
+        <div class="equip-info">
+          <h3>啞鈴</h3>
+          <p>有不同重量可選，適合各種肌力訓練動作</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <div class="equip-hover"></div>
+        <img class="equip-img" src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&auto=format&fit=crop" alt="壺鈴訓練">
+        <div class="equip-info">
+          <h3>壺鈴</h3>
+          <p>可用於多樣化訓練，如壺鈴擺盪、壺鈴抓舉</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <div class="equip-hover"></div>
+        <img class="equip-img" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&auto=format&fit=crop" alt="綜合體能訓練">
+        <div class="equip-info">
+          <h3>綜合體能訓練區</h3>
+          <p>用於團體課及心肺訓練場地</p>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <div class="equip-hover"></div>
+        <img class="equip-img" src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&auto=format&fit=crop" alt="上肢功能訓練">
+        <div class="equip-info">
+          <h3>上肢功能訓練器</h3>
+          <p>中風病人手部協調訓練、肌少症老人肌力訓練</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="section-cta">
+      <a href="#" class="btn-outline">查看更多設備介紹</a>
+    </div>
+  </section>
+
+  <!-- 最新消息 -->
+  <section class="news-section">
+    <h2 class="section-title">最新消息</h2>
+    <div class="news-grid">
+      <a href="#" class="news-item">
+        <span class="news-date">2026 年 3 月 3 日</span>
+        <span class="news-title">體外震波幫助糖尿病傷口癒合</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2026 年 2 月 6 日</span>
+        <span class="news-title">春節復健停診公告</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2026 年 1 月 16 日</span>
+        <span class="news-title">提供長者語言治療</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2025 年 12 月 29 日</span>
+        <span class="news-title">元旦停診公告</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    © 2026 珊織小花喵喵喵. All rights reserved.
+    <p>© 2026 復健中心　｜　地址：台灣某市某路某號　｜　電話：(02) 1234-5678</p>
+    <p style="margin-top:8px;"><a href="#">聯絡我們</a>　｜　<a href="#">隱私政策</a></p>
   </footer>
 
 </body>
 </html>
->>>>>>> a7a4d66a836de5c717d3dc685171d925986717f2
